@@ -30,7 +30,8 @@ public class CardTrick {
             magicHand[i] = c;
         }
         //Code for user to enter card value and suit
-        Scanner scanner = new Scanner(System.in);
+        //commenting to replace user input with luckyCard
+        /*Scanner scanner = new Scanner(System.in);
         System.out.println("Pick any card by entering a value of 1 to 13: ");
         int userValue = scanner.nextInt();
         scanner.nextLine();
@@ -39,17 +40,23 @@ public class CardTrick {
 
         Card userCard = new Card();
         userCard.setValue(userValue);
-        userCard.setSuit(userSuit);
+        userCard.setSuit(userSuit);*/
 
-        //code to check user input for match in array
+        Card luckyCard = new Card();
+        luckyCard.setValue(1);
+        luckyCard.setSuit("Spades");
+        System.out.println("Lucky Card: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
+
+        //code to check for luckyCard match in array
         boolean cardMatch = false;
         for (Card card : magicHand) {
-            if (card.getValue() == userCard.getValue() && card.getSuit().equalsIgnoreCase(userCard.getSuit())) {
+            if (card.getValue() == luckyCard.getValue() && luckyCard.getSuit().equals(luckyCard.getSuit())) {
                 cardMatch = true;
                 break;
 
             }
         }
+
         //output for result after checking array
         if (cardMatch) {
             System.out.println("Your card is in the magic hand!");
@@ -57,19 +64,11 @@ public class CardTrick {
             System.out.println("Your card is not in the magic hand.");
         }
         System.out.println("Cards in Hand: ");
-        for (Card card : magicHand){
-        System.out.println(card.getValue() +" of " + card.getSuit());
+        for (Card card : magicHand) {
+            System.out.println(card.getValue() + " of " + card.getSuit());
         }
-        scanner.close();
 
-        // add one luckcard hard code 2,clubs
-
-        //editing on GitHub to include lucky card
-        Card luckyCard = new Card();
-        luckyCard.setValue(1);
-        luckyCard.setSuit("Spades");
-        System.out.println("Lucky Card: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
-        
+        //scanner.close();
     }
 
 }
