@@ -56,6 +56,9 @@ public class CardTrick {
         } else {
             System.out.println("Your card is not in the magic hand.");
         }
+        for (Card card : magicHand){
+        System.out.println(card.getValue() +" " + card.getSuit());
+        }
         scanner.close();
 
         // add one luckcard hard code 2,clubs
