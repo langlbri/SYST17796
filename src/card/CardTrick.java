@@ -56,6 +56,7 @@ public class CardTrick {
         } else {
             System.out.println("Your card is not in the magic hand.");
         }
+        System.out.println("Cards in Hand: ");
         for (Card card : magicHand){
         System.out.println(card.getValue() +" " + card.getSuit());
         }
