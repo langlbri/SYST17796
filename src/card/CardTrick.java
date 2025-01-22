@@ -63,6 +63,13 @@ public class CardTrick {
         scanner.close();
 
         // add one luckcard hard code 2,clubs
+
+        //editing on GitHub to include lucky card
+        Card luckyCard = new Card();
+        luckyCard.setValue(1);
+        luckyCard.setSuit("Spades");
+        System.out.println("Lucky Card: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
+        
     }
 
 }
