@@ -5,28 +5,60 @@
 package card;
 
 /**
- * A class that fills a magic hand of 7 cards with random Card Objects
- * and then asks the user to pick a card and searches the array of cards
- * for the match to the user's card. To be used as starting code in ICE 1
+ * A class that fills a magic hand of 7 cards with random Card Objects and then
+ * asks the user to pick a card and searches the array of cards for the match to
+ * the user's card. To be used as starting code in ICE 1
+ *
  * @author srinivsi
+ *
+ * BRITTANY_LANGLEY_ICE1 branch
+ * @author brittany langley username: langlbri student number: 991805350 ICE 1
  */
+import java.util.Random;
+import java.util.Scanner;
+
 public class CardTrick {
-    
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         Card[] magicHand = new Card[7];
-        
-        for (int i=0; i<magicHand.length; i++)
-        {
+        Random random = new Random();
+
+        for (int i = 0; i < magicHand.length; i++) {
             Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            c.setValue(random.nextInt(13) + 1);
+            c.setSuit(Card.SUITS[random.nextInt(4)]);
+            magicHand[i] = c;
         }
-        
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
+        //Code for user to enter card value and suit
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Pick any card by entering a value of 1 to 13: ");
+        int userValue = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Enter a card suit (Hearts, Diamonds, Spades, Clubs): ");
+        String userSuit = scanner.nextLine().trim();
+
+        Card userCard = new Card();
+        userCard.setValue(userValue);
+        userCard.setSuit(userSuit);
+
+        //code to check user input for match in array
+        boolean cardMatch = false;
+        for (Card card : magicHand) {
+            if (card.getValue() == userCard.getValue() && card.getSuit().equalsIgnoreCase(userCard.getSuit())) {
+                cardMatch = true;
+                break;
+
+            }
+        }
+        //output for result after checking array
+        if (cardMatch) {
+            System.out.println("Your card is in the magic hand!");
+        } else {
+            System.out.println("Your card is not in the magic hand.");
+        }
+        scanner.close();
+
         // add one luckcard hard code 2,clubs
     }
-    
+
 }
