@@ -58,7 +58,7 @@ public class CardTrick {
         }
         System.out.println("Cards in Hand: ");
         for (Card card : magicHand){
-        System.out.println(card.getValue() +" " + card.getSuit());
+        System.out.println(card.getValue() +" of " + card.getSuit());
         }
         scanner.close();
 
