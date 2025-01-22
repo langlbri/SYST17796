@@ -15,7 +15,7 @@ package card;
  * @author brittany langley username: langlbri student number: 991805350 ICE 1
  */
 import java.util.Random;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class CardTrick {
 
